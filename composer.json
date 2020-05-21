@@ -1,0 +1,24 @@
+{
+    "name": "marsapp/statistics-helper",
+    "description": "Provide numerical processing functions to assist users in statistics or charting.",
+    "homepage": "https://github.com/marshung24/StatisticsHelper",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mars Hung",
+            "email": "tfaredxj@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "marsapp\\helper\\statistics\\": "src", "marsapp\\helper\\tests\\statistics\\": "tests"}
+    },
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^6"
+    },
+    "require": {
+        "marsapp/arrayhelper": "^0.3",
+        "php": "^7"
+    }
+}
