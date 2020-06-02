@@ -245,6 +245,30 @@ class StatisticsHelper
 
 
     /**
+     * Difference from reference value
+     * 
+     * @example
+     * - $data = [3, 6, 7, 9];
+     * - $referValue = 10;
+     * - $output = [7, 4, 3, 1];
+     * 
+     * @param array $data Data array, numeric[]
+     * @param int|float $referValue Reference value
+     * @return array
+     */
+    public static function gap(array $data, $referValue = 0)
+    {
+        // Calculate the percentage
+        $opt = [];
+        foreach ($data as $key => $value) {
+            $opt[$key] = $referValue - $value;
+        }
+
+        return $opt;
+    }
+
+
+    /**
      * Calculate the percentage of array data
      *
      * @param array $data
