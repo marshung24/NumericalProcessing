@@ -59,12 +59,12 @@ class StatisticsHelper
      * - Scale Level: 8/9/9
      * - Scale Value: 56/63/63
      * 
-     * @param float $value
-     * @param float $step interval of two levels
+     * @param int|float mixed $value Value want to processs. Int,Float
+     * @param int|float $step interval of two levels. Int,Float
      * @param string $type Processing method: floor,ceil,round(default)
-     * @return float
+     * @return int|float
      */
-    public static function scaleLevel(float $value, float $step, $type = 'round')
+    public static function scaleLevel($value, $step, $type = 'round')
     {
         switch ($type) {
             default:
@@ -75,7 +75,7 @@ class StatisticsHelper
                 $opt = ceil($value / $step);
                 break;
             case 'round':
-                $opt = round($value / $step);
+                $opt = (int) round($value / $step);
                 break;
         }
 
@@ -89,12 +89,12 @@ class StatisticsHelper
      * - Scale Level: 8/9/9
      * - Scale Value: 56/63/63
      * 
-     * @param float $value
-     * @param float $step interval of two levels
+     * @param int|float mixed $value Value want to processs. Int,Float
+     * @param int|float $step interval of two levels. Int,Float
      * @param string $type Processing method: floor,ceil,round(default)
-     * @return float
+     * @return int|float
      */
-    public static function scaleValue(float $value, float $step, $type = 'round')
+    public static function scaleValue($value, $step, $type = 'round')
     {
         return self::scaleLevel($value, $step, $type) * $step;
     }
