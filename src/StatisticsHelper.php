@@ -413,6 +413,41 @@ class StatisticsHelper
 
 
     /**
+     * Calculate the Expected value of array data
+     *
+     * Structure：
+     * - $data[$result] = $rate;
+     * - $data[$result] = $count;
+     * 
+     * @example
+     * - $data = ["1.5" => 13, "3" => 9, "6.6" => 7];
+     * - return: 3.2
+     * 
+     * @param array $data Data array for calculate
+     * @return float
+     */
+    public static function expectedValue(array $data)
+    {
+        $ex = 0;
+        $count = count($data);
+
+        // Calculate Expected value when array is not empty
+        if ($count) {
+            // Get sum
+            $sum = array_sum($data);
+
+            foreach ($data as $k => $i) {
+                $ex += $k * $i / $sum;
+            }
+
+            $ex = self::fixAccuracy($ex, 2);
+        }
+
+        return $ex;
+    }
+
+
+    /**
      * **************************************************
      * ************** Approximate Function **************
      * **************************************************
